@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <title>Text OCR</title>
+  <style>
+    .abc {
+      background-color: powderblue;
+      border: burlywood solid;
+      height: 300px;
+      width: 50%;
+      text-align: center;
+      float: left;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .abd {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: powderblue;
+      border: burlywood solid;
+      height: 300px;
+      width: 50%;
+      text-align: center;
+      display: block;
+      float: left;
+    }
+
+    .xyz {
+      height: 40px;
+      background-color: aqua;
+      text-align: center;
+      clear: both;
+      height: 157px;
+      font-family: 'Times New Roman', Times, serif;
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">TEXT OCR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+
+      </ul>
+    </div>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>
+      <h2>Welcome To Text Converter!</h2>
+    </strong> You Can Convert Image File to Text!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="abc">
+    <h2>Select Your Image Here and Convert Text File</h2>
+    <!--form method--------------------------------------->
+
+
+
+
+
+
+
+    <form action='index' method='POST' enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <input type="file" name="document">
+      <button type="submit"> Upload_file</button>
+      <!-- <input name="text"><br>
+  
+      <select name="select">
+            <ul> Select File Type 
+          <option value="" selected="selected" disabled="disabled">Select File Type</option>
+          
+          <option value="1">Txt</option>
+          
+          <option value="2">Csv</option>
+            </ul>
+          </select><br>
+      <input type="submit" class="btn btn-dark mt-2" value="Download"> -->
+
+    </form>
+  </div>
+
+  <div class="abd">
+    <h2>Comparison Data Sheet1 and Sheet2 </h2>
+    <form action='/analyze' method='POST'>
+      {% csrf_token %}
+
+      <input type="file" name="file" value="Choose File">
+      <input type="file" name="file2" value="Choose File2"><br>
+      <input type="submit" class="btn btn-dark mt-2" value="Comparison Data">
+    </form>
+  </div>
+  <div class="xyz">
+    <h2> Image to Text </h2>
+    <!-- putted backend here -->
+    <p>{{text}}</p>
+    <!-- end of backend -->
+  </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}
