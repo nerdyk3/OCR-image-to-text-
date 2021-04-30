@@ -13,7 +13,7 @@ pyasn1-modules==0.2.6
 pytesseract==0.2.9
 python-dateutil==2.8.0
 pytz==2019.2
-rsa==4.0
+rsa==4.7
 six==1.12.0
 sqlparse==0.3.0
 uritemplate==3.0.0
