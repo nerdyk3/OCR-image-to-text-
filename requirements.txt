@@ -7,7 +7,7 @@ httplib2==0.13.1
 numpy==1.17.0
 opencv-python==4.1.0.25
 pandas==0.24.2
-Pillow==2.2.2
+Pillow==9.3.0
 pyasn1==0.4.6
 pyasn1-modules==0.2.6
 pytesseract==0.2.9
